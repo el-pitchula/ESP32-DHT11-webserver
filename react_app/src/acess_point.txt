@@ -1,0 +1,32 @@
+// Esse é o código que faz o access point na ESP32
+
+#include <WiFi.h> // incluiu a biblioteca Wifi
+
+const char* ssid = "Lau"; //criou um nome de usuário
+const char* pass = "12345678"; //criou uma senha para a rede
+
+void setup() {
+  
+  Serial.begin(115200); 
+  Serial.print("Arrumando o ponto de acesso...");
+  WiFi.softAP(ssid, pass); 
+  Serial.println("\n");
+  Serial.print("Conectanto à: ");
+  Serial.print(ssid);
+
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
+
+  IPAddress ip = WiFi.softAPIP(); 
+  
+  Serial.println("");
+  Serial.println("Ponto de Acesso criado com sucesso");
+  Serial.print("Endereço IP do Ponto de Acesso: ");
+  Serial.println(ip); // aparece o ip para conectar no outro esp
+
+  digitalWrite(LED_BUILTIN, HIGH);
+
+}
+
+void loop(){
+}
