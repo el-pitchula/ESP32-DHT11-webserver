@@ -1,0 +1,155 @@
+/*
+    -- General Styles --
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+}
+
+.light .navbar .tools {
+    margin-left: auto;
+    display: flex;
+}
+
+.light .navbar .tools .helpButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light .navbar .tools .toggle {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    border-radius: 25px;
+    transition: .2s;
+}
+
+.light .navbar .tools .toggle i {
+    width: 50%;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    z-index: 1;
+}
+
+.light .navbar .tools .modeButton .toggle .ball {
+    position: absolute;
+    width: 22.5px;
+    height: 22.5px;
+    margin: 3.75px;
+    border-radius: 50%;
+    transition: .3s ease-out;
+}
+
+.light .navbar .tools input {
+    display: none;
+}
+
+/*
+    -- Light Mode --
+*/
+
+.light {
+    background: #fafafa;
+}
+
+.light .navbar .tools .toggle {
+    background: linear-gradient(145deg, #e1e1e1, #fff);
+}
+
+.light .toggle .bxs-sun {
+    color: #fafafa;
+}
+
+.light .toggle .bx-moon {
+    color: black;
+}
+
+.light .toggle .ball {
+    background: black;
+}
+
+.light .navbar {
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 5px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+.light .navbar * {
+    display: inline;
+}
+.light .navbar li {
+    margin: 20px;
+}
+.light .navbar li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/*
+    -- Dark Mode --
+*/
+
+.dark {
+    background: black;
+}
+
+.dark .navbar .tools .toggle {
+    background: black;
+}
+
+.dark .toggle .bx-sun {
+    color: #fafafa;
+}
+
+.dark .toggle .bxs-moon {
+    color: #151d2a;
+}
+
+.dark .toggle .ball {
+    background: #fafafa;
+    transform: translateX(30px);
+}
+
+.dark .navbar {
+    background-color: #f2ebeb;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 5px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 #a8a6a6;
+}
+
+.dark .navbar * {
+    display: inline;
+}
+.dark .navbar li {
+    margin: 20px;
+}
+.dark .navbar li a {
+    color: black;
+    text-decoration: none;
+}
