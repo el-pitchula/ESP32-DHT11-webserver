@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<body class="light">
+    <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/temp.html">Temp</a></li>
+        <li><a href="/humi.html">Humi</a></li>
+    </ul>
+    
+    <ul class="tools">
+        <div class = "helpButton">
+            <li><a href="/help.html">?</a></li>
+        </div>
+    
+        <div class = "modeButton">
+            <li>
+                <input type="checkbox" id="toggle">
+    
+                <label class="toggle" for="toggle">
+                    <i class="bx bxs-sun"></i>
+                    <i class="bx bx-moon"></i>
+                    <span class="ball"></span>
+                </label>
+    
+                <!-- JS File -->
+                <script type="text/javascript" src="mode.js"></script>
+            </li>
+        </div>
+    </ul>
+    
+    <!-- 
+    <script>
+        const li = document.querySelectorAll('.menu li')[0]
+        li.addEventListener('click', (e)=>{
+            e.preventDefault()
+            alert('Home Clicked')
+            window.location.href='/index.html'
+        })
+    </script>
+    -->
+</body>

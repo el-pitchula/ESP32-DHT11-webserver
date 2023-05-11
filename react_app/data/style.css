@@ -1,13 +1,16 @@
-/*
-    -- General Styles --
-*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
+    /*
+    background-image: linear-gradient(to bottom, #aeb6bf, #eee8d0);
+    background-attachment: fixed;
+    font-family: sans-serif;
+    /* add */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -15,18 +18,32 @@ body {
     transition: .2s;
 }
 
-.light .navbar .tools {
+section{
+    width:80vw;
+    margin:5% auto;
+    padding-top:40;
+    text-align: center;
+    line-height: 25px;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+/* navbar */
+
+.navbar .tools {
     margin-left: auto;
     display: flex;
 }
 
-.light .navbar .tools .helpButton {
+.navbar .tools .helpButton {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.light .navbar .tools .toggle {
+.navbar .tools .toggle {
     cursor: pointer;
     position: relative;
     display: flex;
@@ -37,7 +54,7 @@ body {
     transition: .2s;
 }
 
-.light .navbar .tools .toggle i {
+.navbar .tools .toggle i {
     width: 50%;
     line-height: 30px;
     text-align: center;
@@ -45,7 +62,7 @@ body {
     z-index: 1;
 }
 
-.light .navbar .tools .modeButton .toggle .ball {
+.navbar .tools .modeButton .toggle .ball {
     position: absolute;
     width: 22.5px;
     height: 22.5px;
@@ -54,11 +71,13 @@ body {
     transition: .3s ease-out;
 }
 
-.light .navbar .tools input {
+.navbar .tools input {
     display: none;
 }
 
-.light .footer {
+/* footer */
+
+.footer {
     background-color: black;
     position: fixed;
     left: 0;
@@ -70,18 +89,23 @@ body {
     box-shadow: 0 0 25px 0 black;
 }
 
-.light .footer table {
+.footer table {
     border-spacing: 20px 5px;
     margin: auto;
 }
 
-.light .footer table td {
+.footer table td {
     text-align: center;
 } 
 
 /*
     -- Light Mode --
 */
+
+.light .navbar .tools {
+    margin-left: auto;
+    display: flex;
+}
 
 .light {
     background: #fafafa;
@@ -140,6 +164,11 @@ body {
     -- Dark Mode --
 */
 
+.dark .navbar .tools {
+    margin-left: auto;
+    display: flex;
+}
+
 .dark {
     background: black;
 }
@@ -192,3 +221,4 @@ body {
 .dark .footer table {
     color: black;
 }
+
