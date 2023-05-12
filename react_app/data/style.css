@@ -30,6 +30,10 @@ h1{
     margin-bottom: 20px;
 }
 
+.navbar .tools .modeButton script{
+    display: none;
+}
+
 /* navbar */
 
 .navbar .tools {
@@ -101,14 +105,17 @@ h1{
 /*
     -- Light Mode --
 */
+.light {
+    background: #fafafa;
+}
+
+.light .text {
+    color: black;
+}
 
 .light .navbar .tools {
     margin-left: auto;
     display: flex;
-}
-
-.light {
-    background: #fafafa;
 }
 
 .light .navbar .tools .toggle {
@@ -164,13 +171,17 @@ h1{
     -- Dark Mode --
 */
 
+.dark {
+    background: black;
+}
+
+.dark .text {
+    color: #fafafa;
+}
+
 .dark .navbar .tools {
     margin-left: auto;
     display: flex;
-}
-
-.dark {
-    background: black;
 }
 
 .dark .navbar .tools .toggle {
