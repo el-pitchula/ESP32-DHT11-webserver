@@ -78,15 +78,36 @@ void setup(){
   Serial.println(WiFi.localIP());
   
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/home.html", "text/html");
+    request->send(SPIFFS, "/index.html", "text/html");
     digitalWrite(LEDtemp, LOW);
     digitalWrite(LEDhumi, LOW);
     digitalWrite(LEDok,   LOW);
     digitalWrite(LEDhumi, LOW);
   });
+
+  server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/style.css", "text/css");});
   
-  server.on("/Home", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/home.html", "text/html");
+  server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/script.js", "text/js");});
+
+  server.on("/navbar.html", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/navbar.html", "text/html");});
+  
+  server.on("/footer.html", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/footer.html", "text/html");});
+  
+  
+  server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/index.html", "text/html");
+    digitalWrite(LEDtemp, LOW);
+    digitalWrite(LEDhumi, LOW);
+    digitalWrite(LEDok,   LOW);
+    digitalWrite(LEDhumi, LOW);
+  });
+
+  server.on("/help.html", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/help.html", "text/html");
     digitalWrite(LEDtemp, LOW);
     digitalWrite(LEDhumi, LOW);
     digitalWrite(LEDok,   LOW);
@@ -99,8 +120,8 @@ void setup(){
 void loop(){
   delay(2000);
 
-  server.on("/Temp", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/temp.html", "text/html"); // pesquisar porque a seta
+  server.on("/temp.html", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(SPIFFS, "/temp.html", "text/html"); // -> ponteiro
     digitalWrite(LEDtemp, HIGH);
     digitalWrite(LEDhumi, LOW);
     float temp = dht.readTemperature();
@@ -109,7 +130,7 @@ void loop(){
     Serial.println(temp);
   });
 
-  server.on("/Humi", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/humi.html", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/humi.html", "text/html");
     digitalWrite(LEDtemp, LOW);
     digitalWrite(LEDhumi, HIGH);

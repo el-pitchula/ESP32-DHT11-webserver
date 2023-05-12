@@ -3,10 +3,13 @@
  * Updates and Gets data from webpage without page refresh
  * https://circuits4you.com
  */
+
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
+#include <DHT_U.h>
 
 #define DHTPIN 19   // Define o pino do sensor DHT22
 #define DHTTYPE DHT11   // Define o tipo de sensor DHT
@@ -44,7 +47,6 @@ void handleRoot() {
 <div class="card">
   <h4>The ESP32 Update web page without refresh</h4><br>
   <h2><p>Temp:<span id="TempValue">0</span></p></h2><br>
-  <h2><p>Humi:<span id="HumiValue">0</span></p></h2><br>
 </div>
 <script>
 
@@ -58,10 +60,9 @@ function getData() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("TempValue").innerHTML = this.responseText;
-      document.getElementById("HumiValue").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "readADC", true);
+  xhttp.open("GET", "readTemp", true);
   xhttp.send();
 }
 </script>
@@ -73,19 +74,25 @@ function getData() {
  server.send(200, "text/html", s); //Send web page
 }
  
-void handleADC() {
-  float humi = dht.readHumidity();       // Lê a humidade do sensor
+void handleTemp() {
   float temp = dht.readTemperature();   // Lê a temperatura do sensor
   String TempValue = String(temp);
-  String HumiValue = String(humi);
   Serial.print("temp: ");
   Serial.print(temp);
-  Serial.print("°C  humi: ");
+  Serial.println("°C ");
+  server.send(200, "text/plane", TempValue); //Send temp value only to client ajax request
+}
+
+/*
+void handleHumi() {
+  float humi = dht.readHumidity();       // Lê a humidade do sensor
+  String HumiValue = String(humi);
+  Serial.print("humi: ");
   Serial.print(humi);
   Serial.println("%");
-  server.send(200, "text/plane", TempValue); //Send ADC value only to client ajax request
-  server.send(200, "text/plane", HumiValue); //Send ADC value only to client ajax request
+  server.send(200, "text/plane", HumiValue); //Send humi value only to client ajax request
 }
+*/
 
 //===============================================================
 // Setup
@@ -122,8 +129,9 @@ void setup(void){
   Serial.println(WiFi.localIP());  //IP address assigned to your ESP
 //----------------------------------------------------------------
  
-  server.on("/", handleRoot);      //This is display page
-  server.on("/readADC", handleADC);//To get update of ADC Value only
+  server.on("/", handleRoot);        //This is display page
+  server.on("/readTemp", handleTemp);//To get update of temp value only
+  //server.on("/readHumi", handleHumi);//To get update of humi value only
  
   server.begin();                  //Start server
   Serial.println("HTTP server started");
