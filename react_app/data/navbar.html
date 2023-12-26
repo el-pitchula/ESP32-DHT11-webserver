@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<body class="light">
+    <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/temp.html">Temp</a></li>
+        <li><a href="/humi.html">Humi</a></li>
+    </ul>
+    
+    <ul class="tools">
+        <div class = "helpButton">
+            <li><a href="/help.html">?</a></li>
+        </div>
+    
+        <div class = "modeButton">
+            <li>
+                <input type="checkbox" id="toggle">
+                <label class="toggle" for="toggle">
+                    <i class="bx bxs-sun"></i>
+                    <i class="bx bx-moon"></i>
+                    <span class="ball"></span>
+                </label>
+
+                <!-- JS File -->
+                <script class = "script" type="text/javascript">
+                    const body = document.querySelector("body");
+                    const toggle = document.querySelector("#toggle");
+                    const sunIcon = document.querySelector(".toggle .bxs-sun");
+                    const moonIcon = document.querySelector(".toggle .bx-moon");
+
+                    toggle.addEventListener("change", () => {
+                        
+                        body.classList.toggle("dark");
+                        sunIcon.className = (sunIcon.className == "bx bxs-sun") ? "bx bx-sun" : "bx bxs-sun";
+                        moonIcon.className = (moonIcon.className == "bx bxs-moon") ? "bx bx-moon" : "bx bxs-moon";
+
+                    });
+                </script>
+                
+            </li>
+        </div>
+    </ul>
+    
+    <!-- 
+    <script>
+        const li = document.querySelectorAll('.menu li')[0]
+        li.addEventListener('click', (e)=>{
+            e.preventDefault()
+            alert('Home Clicked')
+            window.location.href='/index.html'
+        })
+    </script>
+    -->
+</body>
