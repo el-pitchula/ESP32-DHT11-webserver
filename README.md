@@ -1,8 +1,8 @@
-<h1 align="center">WebServer for monitoring DHT11 data in real-time.</h1>
+<h1 align="center">ESP32 DHT11 WebServer</h1>
 
 
 <div align="center">
-  <strong>🚀 add descrição (resumo do projeto) </strong>
+  <strong>WebServer for monitoring DHT11 data in real-time with ESP32 microcontroller.</strong>
 </div>
 
 <div align="center">
