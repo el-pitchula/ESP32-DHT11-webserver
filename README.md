@@ -5,11 +5,6 @@
   <strong>WebServer for monitoring DHT11 data in real-time with ESP32 microcontroller.</strong>
 </div>
 
-<div align="center">
-  <p>palavras-chave</p>
-  <p></p>
-</div>
-
 ## 📖 Index
 
 - [Overview](#overview)
