@@ -26,7 +26,6 @@ falar sobre a comunicação entre os códigos (muito provavelmente só pelas pas
 - C/C++ for arduino (.ino)
 - Python (.py)
 - MATLAB (.m)
-- ...
 
 [![Tec](https://skillicons.dev/icons?i=py,cpp,vscode,blender,matlab,arduino)](https://skillicons.dev)
 
